@@ -54,7 +54,7 @@ tilesArray = ["up", "right-up", "right", "right-down", "down", "left-down", "lef
 function slowDance(direction, tilesArray) {
   // Code goes here ...
   /*
-  linear time 
+  linear time
   iterate through array check if ele === direction
   return direction
   return -1
@@ -79,7 +79,16 @@ tilesObj = {
   "left-up": 7
 }
 function fastDance(direction, tilesObj) {
-  // Code goes here ...
+  /*
+  Time: O(1) - Constant
+  return the value of key in the object
+
+  fastDance("left-up", tilesObj) -> 7
+  key === direction
+  tilesObj[key] = value
+  tilesObj[direction] = value
+  */
+ return tilesObj[direction]
 }
 const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
