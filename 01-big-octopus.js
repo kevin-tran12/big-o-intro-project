@@ -1,5 +1,17 @@
 function quadraticBiggestFish(fishes) {
   // Code goes here ...
+  /*input:array of strings
+  output: longest string
+  steps:
+  1. can iterate through array or using .sort method pass in callback that compare two elee and difference between ele.length*/
+  let max = fishes[0]
+  for (let i = 1; i < fishes.length; i++) {
+    let fish = fishes[i]
+    if (max.length < fish.length) {
+      max = fish
+    }
+  }
+  return max
 }
 
 
@@ -32,3 +44,7 @@ tilesObj = {
 function fastDance(direction, tilesObj) {
   // Code goes here ...
 }
+const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
+  'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+
+console.log(quadraticBiggestFish(fishies))
