@@ -3,8 +3,42 @@ function quadraticBiggestFish(fishes) {
   /*input:array of strings
   output: longest string
   steps:
-  1. can iterate through array or using .sort method pass in callback that compare two elee and difference between ele.length*/
-  let max = fishes[0]
+  1. can iterate through array or using .sort method pass in callback that compare two elee and difference between ele.length
+  compare fishes.length to otherFishes.length
+  Time: O(n^2) - Quadratic
+  Space:
+  */
+ let currentBiggest;
+ for (let i = 0; i < fishes.length;i++) {
+   for (let j = 0; j < fishes.length; j++){
+     if (fishes[i] > fishes[j]) {
+       currentBiggest = fishes[i];
+     }
+   }
+  }
+  return currentBiggest;
+}
+
+
+function nlognBiggestFish(fishes) {
+  /*
+  use the built in sort method, b/c it runs in O(log(n))
+  */
+ fishes.sort((a,b) =>  b.length -a.length)
+ return fishes[0]
+}
+
+function linearBiggestFish(fishes) {
+  /*
+  loop through the array with a for loop
+  declare & set it to fishes[0]
+  compare to the nextOne
+  if(nextOne > LongestOne)
+  longest =
+  Time: O(n) - Linear
+  Space:
+  */
+ let max = fishes[0]
   for (let i = 1; i < fishes.length; i++) {
     let fish = fishes[i]
     if (max.length < fish.length) {
@@ -12,16 +46,7 @@ function quadraticBiggestFish(fishes) {
     }
   }
   return max
-}
 
-
-function nlognBiggestFish(fishes) {
-  // Code goes here ...
-}
-
-
-function linearBiggestFish(fishes) {
-  // Code goes here ...
 }
 
 
@@ -45,6 +70,9 @@ function fastDance(direction, tilesObj) {
   // Code goes here ...
 }
 const fishies = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
-  'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
 
 console.log(quadraticBiggestFish(fishies))
+
+// console.log(nlognBiggestFish(fishies));
+// console.log()
