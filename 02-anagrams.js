@@ -50,14 +50,14 @@ function secondAnagram(str1, str2) {
 
 function thirdAnagram(str1, str2) {
   // Code goes here ....
-  /* 
+  /*
   store letters into objects
   assuming char as keys
   frequent as value
   call these obj as obj1 obj2
   compare resulting objs
   use method object.getkeys
-  compare 
+  compare
   for in loop
   A LOT OF STEPS
   for in loop for each key in obj if key doesn't === same name of key in second it will return t/f
@@ -71,7 +71,7 @@ function thirdAnagram(str1, str2) {
     } else {
       obj1[char1]++
     }
-    
+
   }
   for (let j = 0; j < str2.length; j++) {
     let char2 = str2[j]
@@ -87,9 +87,59 @@ function thirdAnagram(str1, str2) {
   return true
   // console.log(obj1,obj2)
 }
-console.log(thirdAnagram("gizmo", "sally"))
-console.log(thirdAnagram("elvis", "lives"))
+
+// console.log(thirdAnagram("gizmo", "sally"))
+// console.log(thirdAnagram("elvis", "lives"))
+
 
 function fourthAnagram(str1, str2) {
-  // Code goes here ....
+  /*
+  store both words in the same object and count the letters
+
+  1 for loop to store str1
+  obj[`str1${char}`] = 1
+  else
+  obj[`str1${char}`]++
+  1 for loop to store str2
+  obj[`str2${char}`]
+  else
+  obj[`str2${char}`]++
+  for ( key in obj)
+   key  = str2c, str1a
+  let newkey  = key.slice(4) // c, a
+
+  if (obj[`str1${newkey}`] == obj[`str2${newkey}`])
+  return false
+  */
+ let obj = {}
+ for ( let i = 0; i < str1.length; i++) {
+   let char = str1[i]
+
+   if (obj[`str1${char}`] === undefined){
+     obj[`str1${char}`] = 1
+   } else {
+     obj[`str1${char}`]++
+   }
+ }
+ for ( let i = 0; i < str2.length; i++) {
+   let char = str2[i]
+
+   if (obj[`str2${char}`] === undefined){
+     obj[`str2${char}`] = 1
+   } else {
+     obj[`str2${char}`]++
+   }
+ }
+//  console.log(obj);
+  for (let key in obj) {
+    // console.log(obj[key]);
+    let answer  = key.slice(4)
+    // key[key.length-1]
+    if (obj[`str1${answer}`] !== obj[`str2${answer}`]){
+      return false;
+    }
+  }
+  return true;
 }
+console.log(fourthAnagram("gizmo", "sally"))
+console.log(fourthAnagram("elvis", "lives"))
